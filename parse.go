@@ -2,8 +2,6 @@ package i18n
 
 import "github.com/HarmoDeveloper/harmo-i18n/langs"
 
-var ParserGlobal *Parser
-
 type Parser struct {
 	countries         map[string]string
 	invertedCountries map[string]string
@@ -17,11 +15,11 @@ func (p Parser) Parse(id string) string {
 	if code, ok := p.invertedCountries[id]; ok {
 		return code
 	}
+
 	return ""
 }
 
 func NewParser() *Parser {
-
 	invertedCountries := make(map[string]string)
 
 	for code, name := range langs.Countries {
